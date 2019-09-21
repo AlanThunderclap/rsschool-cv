@@ -1,1 +1,1 @@
-# rsschool-cv
+https://alanthunderclap.github.io/rsschool-cv/cv

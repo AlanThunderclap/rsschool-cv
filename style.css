@@ -7,7 +7,6 @@ html {
 
 body {
     border: #cccccc 1px solid;
-    border-radius: 10px;
     font-family: Georgia, 'Times New Roman', Times, serif
 }
 
@@ -34,6 +33,7 @@ h1 {
 h2 {
     background-color: #90A4AE;
     padding: 8px 16px;
+    margin-bottom: 0;
     color: white;
 }
 
@@ -47,7 +47,16 @@ a:hover {
 
 main {
     background-color: white;
-    padding: 1px 32px 16px 32px;
+    padding: 1px 16px 16px 16px;
+}
+
+section {
+    border: 1px #90A4AE solid;
+    border-top: none;
+}
+
+section>div {
+    padding: 16px;
 }
 
 code {

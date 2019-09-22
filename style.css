@@ -1,5 +1,12 @@
 html {
-    border: 3px solid red;
+    /*border: 3px solid red;*/
     margin: auto;
+    padding: 16px;
     max-width: 1024px;
+}
+
+header {
+    background-color: darkcyan;
+    color: white;
+    padding: 16px;
 }

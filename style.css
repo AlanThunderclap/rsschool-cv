@@ -12,7 +12,7 @@ body {
 }
 
 header {
-    background-color: darkcyan;
+    background-color: #546E7A;
     color: white;
     padding: 16px;
 }
@@ -31,9 +31,14 @@ h1 {
     margin-bottom: 0;
 }
 
+h2 {
+    background-color: #90A4AE;
+    padding: 8px 16px;
+    color: white;
+}
+
 a {
     color: white;
-    text-align: right;
 }
 
 a:hover {
@@ -42,15 +47,7 @@ a:hover {
 
 main {
     background-color: white;
-    padding: 1px 16px 16px 16px;
-}
-
-section {
-    border-top: 1px #cccccc solid
-}
-
-section:first-child {
-    border-top: none;
+    padding: 1px 32px 16px 32px;
 }
 
 code {

@@ -7,7 +7,8 @@ html {
 
 body {
     border: #cccccc 1px solid;
-    font-family: Georgia, 'Times New Roman', Times, serif
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    box-shadow: 0 0 2px #0000007F;
 }
 
 header {
@@ -53,6 +54,7 @@ main {
 section {
     border: 1px #90A4AE solid;
     border-top: none;
+    box-shadow: 0 0 10px #0000007F;
 }
 
 section>div {

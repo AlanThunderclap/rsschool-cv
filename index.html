@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="csharp.css">
+    <title>Resume</title>
+</head>
+
+<body>
+    <header>
+        <img src="assets/photo.jpg" alt="I really have no one good portrait photo!" width="128">
+        <div class="header-info">
+            <h1>Aleksei Lazarenko</h1>
+            <div>
+                Email:
+                <a href="mailto:alan.thunderclap@mail.ru">alan.thunderclap@mail.ru</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section>
+            <h2>Summary</h2>
+            <div>
+                I have been programming since school.
+                It all started with BASIC, then there was Pascal.
+                At my first work, C++ was used, and in parallel I studied C#.
+                C# is currently my main language, which I really like.
+                But it’s always important to learn something new.
+                Therefore, I often try other technologies and programming languages.
+                For example, I wrote a few applications for Android.
+                Of the latter, I studied the functional programming language F#.
+                Now I decided to try front-end development.
+                </d>
+        </section>
+        <section>
+            <h2>Skills</h2>
+            <div>
+                ★★★:
+                <ul>
+                    <li>.Net: C#, WinForms, WPF, WCF</li>
+                </ul>
+
+                ★★☆:
+                <ul>
+                    <li>C++</li>
+                </ul>
+
+                ★☆☆:
+                <ul>
+                    <li>Java (for Android)</li>
+                    <li>F#</li>
+                </ul>
+            </div>
+        </section>
+        <section>
+            <h2>Code examples</h2>
+            <div>
+                <p>This code works with log files and filters them by date and regular expression</p>
+                <pre class="cscode">
+<code><span class="key">using</span> System;
+<span class="key">using</span> System.IO;
+<span class="key">using</span> System.Linq;
+<span class="key">using</span> System.Text.RegularExpressions;
+
+<span class="key">namespace</span> TextFileTrimmer
+{
+    <span class="key">class</span> Program
+    {
+        <span class="key">static</span> <span class="key">void</span> Main(<span class="key">string</span>[] args)
+        {
+            <span class="key">if</span> (args.Length == 0)
+            {
+                Console.WriteLine(<span class="str">"Не указан обязательный параметр - имя файла!"</span>);
+            }
+            <span class="key">else</span>
+                <span class="key">try</span>
+                {
+                    <span class="key">string</span> filename = args[0];
+
+                    <span class="key">var</span> trimmed = File.ReadLines(filename);
+
+                    Console.Write(<span class="str">"Начальное время (Enter для пропуска): "</span>);
+                    <span class="key">string</span> str = Console.ReadLine();
+                    <span class="key">if</span> (DateTime.TryParse(str, <span class="key">out</span> DateTime from))
+                        trimmed = trimmed.SkipWhile(s =&gt; GetDate(s) &lt; from);
+
+                    Console.Write(<span class="str">"Конечное время (Enter для пропуска): "</span>);
+                    str = Console.ReadLine();
+                    <span class="key">if</span> (DateTime.TryParse(str, <span class="key">out</span> DateTime to))
+                        trimmed = trimmed.TakeWhile(s =&gt; GetDate(s) &lt;= to);
+
+                    Console.Write(<span class="str">"Фильтр (Enter для пропуска): "</span>);
+                    str = Console.ReadLine();
+                    <span class="key">if</span> (str != <span class="key">null</span>)
+                    {
+                        <span class="key">var</span> regex = <span class="key">new</span> Regex(str);
+                        trimmed = trimmed.Where(line =&gt; regex.IsMatch(line));
+                    }
+
+                    Console.WriteLine(<span class="str">"\nВ работе..."</span>);
+                    File.WriteAllLines(filename + <span class="str">".trim"</span>, trimmed);
+                }
+                <span class="key">catch</span> (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+
+            Console.WriteLine(<span class="str">"Готово..."</span>);
+            Console.ReadLine();
+        }
+
+        <span class="key">private</span> <span class="key">static</span> DateTime GetDate(<span class="key">string</span> line)
+        {
+            DateTime dateTime = DateTime.MinValue;
+            <span class="key">int</span> pos = line.IndexOf(<span class="str">'|'</span>);
+
+            <span class="key">if</span> (pos != -1)
+                DateTime.TryParse(line.Substring(0, pos), <span class="key">out</span> dateTime);
+
+            <span class="key">return</span> dateTime;
+        }
+    }
+}
+</code></pre>
+            </div>
+        </section>
+        <section>
+            <h2>Experience</h2>
+            <div>
+                I have experience in developing and supporting client-server applications,
+                special software that works with navigation equipment,
+                services for mobile content providers.
+            </div>
+        </section>
+        <section>
+            <h2>Languages</h2>
+            <div>
+                <ul>
+                    <li><span class="lang-name">Russian:</span> Native</li>
+                    <li><span class="lang-name">English:</span> Pre-Intermediate</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
